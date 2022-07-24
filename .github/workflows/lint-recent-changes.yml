@@ -1,0 +1,11 @@
+name: Lint Recent Changes
+
+on: push
+
+jobs:
+  lint-recent-changes:
+    name: Lint changes made on your branch against the target branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
