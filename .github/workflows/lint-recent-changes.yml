@@ -4,7 +4,7 @@ on: push
 
 jobs:
   lint-recent-changes:
-    name: Lint changes made on your branch against the target branch
+    name: Lint files changed on your branch
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
