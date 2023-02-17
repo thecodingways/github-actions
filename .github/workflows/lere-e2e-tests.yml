@@ -4,9 +4,6 @@ on:
   issue_comment:
     types: [created]
 
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
 jobs:
   # This workflow contains a single job called "cron"
   run-lere-e2e:
