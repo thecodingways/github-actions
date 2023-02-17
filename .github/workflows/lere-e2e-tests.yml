@@ -1,0 +1,39 @@
+name: LERE e2e Tests Runner
+
+on:
+  issue_comment:
+    types: [created]
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  # This workflow contains a single job called "cron"
+  run-lere-e2e:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - run: echo '{}' > cypress/fixtures/user.json
+      - run: echo '{}' > cypress/fixtures/userWithCredits.json
+
+      - name: Run LERE Cypress tests 🌲
+        uses: cypress-io/github-action@v5
+        with:
+          spec: cypress/e2e/lere/**/*
+        env:
+          CYPRESS_API_HOST: https://api.luxuryescapes.com
+          CYPRESS_BASE_URL: https://luxuryescapes.com
+          CYPRESS_LERE: true
+          DEV: false
+          REACT_APP_CUSTOMER_PORTAL_HOST: luxuryescapes.com
+          TZ: Australia/Sydney
+      - uses: rtCamp/action-slack-notify@v2
+        if: failure()
+        env:
+          SLACK_WEBHOOK: ${{ secrets.LERE_ALERT_SLACK_WEBHOOK }}
+
