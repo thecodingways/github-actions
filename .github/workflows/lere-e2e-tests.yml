@@ -33,4 +33,5 @@ jobs:
         if: failure()
         env:
           SLACK_WEBHOOK: ${{ secrets.LERE_ALERT_SLACK_WEBHOOK }}
-
+          SLACK_TITLE: 'Mike is testing'
+          SLACK_MESSAGE: 'Imagine a customer portal LERE e2e test failed'
