@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src"
   },
+  "engines": {
+    "node": "^16",
+    "yarn": "1.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thecodingways/github-actions.git"
