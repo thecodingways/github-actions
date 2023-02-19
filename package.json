@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src"
   },
+  "engines": {
+    "node": "^16",
+    "yarn": "1.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thecodingways/github-actions.git"
@@ -18,6 +22,7 @@
   },
   "homepage": "https://github.com/thecodingways/github-actions#readme",
   "devDependencies": {
+    "cypress": "^12.5.1",
     "eslint": "^8.20.0"
   }
 }
